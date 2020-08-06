@@ -1,7 +1,7 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: './tsconfig.json',
+    project: './tsconfig.eslint.json',
   },
   env: {
     jest: true,
@@ -25,7 +25,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['./src/**/*stories*'],
+      files: ['./stories/**/*stories*'],
       rules: {
         'import/no-default-export': 0,
       },

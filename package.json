@@ -1,16 +1,22 @@
 {
   "name": "@lab49/react-value-flash",
   "version": "1.0.0",
-  "description": "React component for flashing based on value changes.",
+  "description": "Flash on screen based on value changes. Perfect for financial applications.",
   "author": "brianmcallister",
   "license": "MIT",
-  "repository": "brianmcallister/@lab49/react-value-flash",
+  "repository": "@lab49/react-value-flash",
+  "keywords": [
+    "react",
+    "finance",
+    "fintech",
+    "streaming",
+    "realtime",
+    "javascript",
+    "typescript"
+  ],
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
-  "source": "src/index.tsx",
-  "engines": {
-    "node": ">=10"
-  },
+  "source": "src/Flash.tsx",
   "scripts": {
     "build": "microbundle-crl --no-compress --format modern,cjs",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
@@ -73,6 +79,5 @@
   },
   "files": [
     "dist"
-  ],
-  "dependencies": {}
+  ]
 }

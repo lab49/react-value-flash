@@ -1,42 +1,37 @@
 import classnames from 'classnames';
 import React from 'react';
 
-interface Props {
-  downColor?: string;
-  formatter?: 'currency' | 'percentage' | 'number';
-  formatterFn?: (value: Props['value']) => string;
-  stylePrefix?: string;
-  timeout?: number;
-  transition?: string;
-  transitionLength?: number;
-  upColor?: string;
-  value: number;
-}
+import { defaultFormatter, formatters } from './formatters/index';
 
-type Formatters = {
-  [K in Extract<Props['formatter'], string>]: (value: Props['value']) => string;
-};
-
-enum FlashDirection {
+export enum FlashDirection {
   Down = 'down',
   Up = 'up',
 }
 
-const defaultFormatter = (value: number) => value;
-const numberFormatter = (value: number) => Intl.NumberFormat('en').format(value);
-const currencyFormatter = (value: number) =>
-  Intl.NumberFormat('en', { style: 'currency', currency: 'USD' }).format(value);
-const percentageFormatter = (value: number) =>
-  // See: https://github.com/microsoft/TypeScript/issues/36533
-  // @ts-ignore
-  Intl.NumberFormat('en', { style: 'percent', signDisplay: 'exceptZero' }).format(value);
+export interface Props {
+  // Color value when the component flashes 'down'.
+  downColor?: string;
+  // One of the built in formatters.
+  formatter?: 'currency' | 'percentage' | 'number';
+  // Pass your own formatter function.
+  formatterFn?: (value: Props['value']) => string;
+  // Prefix for the CSS selectors in the DOM.
+  stylePrefix?: string;
+  // Amount of time the flashed state is visible for, in milliseconds.
+  timeout?: number;
+  // Custom CSS transition property.
+  transition?: string;
+  // Transition length, in milliseconds.
+  transitionLength?: number;
+  // Color value when the component flashes 'up'.
+  upColor?: string;
+  // Value to display. The only required prop.
+  value: number;
+}
 
-const formatters: Formatters = {
-  number: numberFormatter,
-  currency: currencyFormatter,
-  percentage: percentageFormatter,
-};
-
+/**
+ * Default component props.
+ */
 const defaultProps = {
   downColor: '#d43215',
   formatter: undefined,
@@ -48,6 +43,9 @@ const defaultProps = {
   upColor: '#00d865',
 };
 
+/**
+ * Flash component.
+ */
 export const Flash = ({
   downColor = defaultProps.downColor,
   formatter,
@@ -75,13 +73,15 @@ export const Flash = ({
   const valueFormatter = formatterFn ?? (formatter ? formatters[formatter] : defaultFormatter);
 
   React.useEffect(() => {
-    // If there's no change, only reset.
+    // If there's no change, only reset (this prevents flash on first render).
+    // TODO (brianmcallister) - Which, maybe, people might want?
     if (ref.current === value) {
       setFlash(null);
 
       return () => {};
     }
 
+    // Set the flash direction.
     setFlash(value > ref.current ? FlashDirection.Up : FlashDirection.Down);
 
     // Reset the flash state after `timeout`.

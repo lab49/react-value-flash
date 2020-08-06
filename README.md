@@ -145,3 +145,7 @@ MIT @ [Lab49](https://lab49.com)
 - [ ] Add a code of conduct.
 - [ ] Add a contributing guide.
 - [ ] Create a feature roadmap.
+- [ ] Radix align numbers.
+- [ ] Support for transition events.
+- [ ] Support for custom keyframe animations.
+- [ ] Custom component rendering (leverage formatter? render props?).

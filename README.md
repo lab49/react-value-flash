@@ -78,7 +78,7 @@ As discussed above, there are a number of classnames you can use to add your own
 | `.rvf_Flash__value` | Rendered value, direct (and only) child of the root node. |
 | `.rvf_Flash--flashing` | Applied only when the component is in the flashing state. |
 | `.rvf_Flash--flashing-up` | Applied when flashing 'up'. |
-| `.rvf_Flash__flashing-down` | Applied when flashing 'down'. |
+| `.rvf_Flash--flashing-down` | Applied when flashing 'down'. |
 | `.rvf_Flash--positive` | Applied when the value is positive. |
 | `.rvf_Flash--negative` | Applied when the value is negative. |
 

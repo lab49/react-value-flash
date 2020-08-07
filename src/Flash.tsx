@@ -45,6 +45,15 @@ const defaultProps = {
 
 /**
  * Flash component.
+ *
+ * `react-value-flash` will display a flashed value on screen based on some value change. This pattern is extremely common in financial applications, and at Lab49, we're focused on the finance industry.
+ *
+ * Incorporate this component into your application and pass along a number. As that number changes, this component will briefly flash a color, letting the user know the number has changed. By default, this component will flash green when the value changes up, or red when the value changes down.
+ *
+ * Not only are these colors configurable, but the properties of the flash itself and the formatting of the value are configurable as well.
+ *
+ * Furthermore, this component doesn't come with any styles, but does provide plenty of hooks to add your own styles. Even though flash color and transition properties are configurable as props, you can still use the generated classnames (which are also configurable) to add your own unique styles.
+ *
  */
 export const Flash = ({
   downColor = defaultProps.downColor,

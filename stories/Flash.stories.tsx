@@ -1,12 +1,16 @@
 import React from 'react';
 
 import { Flash } from '../src/Flash';
-import { ValueSetter } from './components/ValueSetter';
 import { useInterval } from './useInterval';
+import { ValueSetter } from './components/ValueSetter';
+import pkg from '../package.json';
 
 export default {
   title: 'Flash',
   component: Flash,
+  parameters: {
+    componentSubtitle: pkg.description,
+  },
 };
 
 export const Default = () => {

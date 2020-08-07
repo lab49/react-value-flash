@@ -39,6 +39,7 @@ This component is perfect for:
   - [`FlashDirection`](#FlashDirection)
 - [Extra](#extra)
 - [License](#License)
+- [TODO](#TODO)
 
 ## Demo
 
@@ -132,13 +133,15 @@ This project was created with [create-react-library](https://github.com/transiti
 
 ###### [⇡ Top](#table-of-contents)
 
-## Licence
+## License
 
 MIT @ [Lab49](https://lab49.com)
 
 ###### [⇡ Top](#table-of-contents)
 
 ## TODO
+
+These items are very high level right now. Further discussion and proper roadmap plannig will happen in GitHub issues and projects.
 
 - [ ] Add unit tests.
 - [ ] Incorporate a CI process for publishing.

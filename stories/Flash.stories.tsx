@@ -88,32 +88,32 @@ export const CustomFormatter = () => {
 
 export const StylingComponentClassNames = () => {
   return (
-    <>
+    <div className="styling-component-class-names">
       <style
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
           __html: `
-          .rvf_Flash--positive:after {
+          .styling-component-class-names .rvf_Flash--positive:after {
             content: '👍';
           }
 
-          .rvf_Flash--negative:after {
+          .styling-component-class-names .rvf_Flash--negative:after {
             content: '👎';
           }
 
-          .rvf_Flash--even:after {
+          .styling-component-class-names .rvf_Flash--even:after {
             content: '🤙';
           }
 
-          .rvf_Flash--flashing {
+          .styling-component-class-names .rvf_Flash--flashing {
             color: #fff;
           }
 
-          .rvf_Flash--flashing-up {
+          .styling-component-class-names .rvf_Flash--flashing-up {
             background-color: blue !important;
           }
 
-          .rvf_Flash--flashing-down {
+          .styling-component-class-names .rvf_Flash--flashing-down {
             background-color: orange !important;
           }
         `,
@@ -121,18 +121,18 @@ export const StylingComponentClassNames = () => {
       />
 
       <ValueSetter initialValue={0}>{(value: number) => <Flash value={value} />}</ValueSetter>
-    </>
+    </div>
   );
 };
 
 export const MakeItNice = () => {
   return (
-    <>
+    <div className="make-it-nice">
       <style
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
           __html: `
-          .rvf_Flash {
+          .make-it-nice .rvf_Flash {
             border: 1px solid rgba(0, 0, 0, .1);
             border-radius: 3px;
             display: inline-flex;
@@ -148,27 +148,27 @@ export const MakeItNice = () => {
             transition-property: background-color, box-shadow, border-color !important;
           }
 
-          .rvf_Flash:hover {
+          .make-it-nice .rvf_Flash:hover {
             box-shadow: 0 11px 14px -11px rgba(0, 0, 0, 0.3);
           }
 
-          .rvf_Flash:hover:not(.rvf_Flash--flashing) {
+          .make-it-nice .rvf_Flash:hover:not(.rvf_Flash--flashing) {
             background-color: rgba(0, 0, 0, 0.03);
           }
 
-          .rvf_Flash__value {
+          .make-it-nice .rvf_Flash__value {
             transition: color .1s ease-in-out;
           }
 
-          .rvf_Flash--flashing-up {
+          .make-it-nice .rvf_Flash--flashing-up {
             border-color: #07b357;
           }
 
-          .rvf_Flash--flashing-down {
+          .make-it-nice .rvf_Flash--flashing-down {
             border-color: #912b19;
           }
 
-          .rvf_Flash--flashing .rvf_Flash__value {
+          .make-it-nice .rvf_Flash--flashing .rvf_Flash__value {
             color: #fff;
           }
         `,
@@ -182,6 +182,6 @@ export const MakeItNice = () => {
           </div>
         )}
       </ValueSetter>
-    </>
+    </div>
   );
 };

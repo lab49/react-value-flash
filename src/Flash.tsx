@@ -30,20 +30,6 @@ export interface Props {
 }
 
 /**
- * Default component props.
- */
-const defaultProps = {
-  downColor: '#d43215',
-  formatter: undefined,
-  formatterFn: undefined,
-  stylePrefix: 'rvf_Flash',
-  timeout: 200,
-  transition: undefined,
-  transitionLength: 100,
-  upColor: '#00d865',
-};
-
-/**
  * Flash component.
  *
  * `react-value-flash` will display a flashed value on screen based
@@ -67,15 +53,15 @@ const defaultProps = {
  *
  */
 export const Flash = ({
-  downColor = defaultProps.downColor,
+  downColor = '#d43215',
   formatter,
   formatterFn,
-  timeout,
-  transition = defaultProps.transition,
-  transitionLength = defaultProps.transitionLength,
-  upColor = defaultProps.upColor,
+  timeout = 200,
+  transition,
+  transitionLength = 100,
+  upColor = '#00d865',
   value,
-  stylePrefix = defaultProps.stylePrefix,
+  stylePrefix = 'rvf_Flash',
 }: Props) => {
   const ref = React.useRef<number>(value);
   const [flash, setFlash] = React.useState<FlashDirection | null>(null);
@@ -123,5 +109,3 @@ export const Flash = ({
     </div>
   );
 };
-
-Flash.defaultProps = defaultProps;

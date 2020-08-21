@@ -1,6 +1,8 @@
 import React from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { Flash } from '../src/Flash';
+import { Flash, Props } from '../src/Flash';
 import { useInterval } from './useInterval';
 import { ValueSetter } from './components/ValueSetter';
 import pkg from '../package.json';
@@ -11,11 +13,31 @@ export default {
   parameters: {
     componentSubtitle: pkg.description,
   },
+  argTypes: {
+    upColor: { control: 'color' },
+    downColor: { control: 'color' },
+  },
+} as Meta;
+
+const numberMap = {
+  0: 'zero',
+  1: 'one',
+  2: 'two',
+  3: 'three',
+  4: 'four',
+  5: 'five',
+  6: 'six',
+  7: 'seven',
+  8: 'eight',
+  9: 'nine',
 };
 
-export const Default = () => {
-  return <ValueSetter>{(value: number) => <Flash value={value} />}</ValueSetter>;
+const Template: Story<Props> = (args) => {
+  // eslint-disable-next-line react/jsx-props-no-spreading
+  return <ValueSetter>{(value: number) => <Flash {...args} value={value} />}</ValueSetter>;
 };
+
+export const Default = Template.bind({});
 
 export const StreamingData = () => {
   const [hasRan, setHasRan] = React.useState<boolean>(false);
@@ -84,7 +106,15 @@ export const CustomFormatter = () => {
   return (
     <ValueSetter>
       {(value: number) => (
-        <Flash value={value} formatterFn={(val) => `[${`${val}`.split('').join(',')}]`} />
+        <Flash
+          value={value}
+          formatterFn={(val) => {
+            return `[${`${val}`
+              .split('')
+              .map((v) => numberMap[v])
+              .join(', ')}]`;
+          }}
+        />
       )}
     </ValueSetter>
   );

@@ -29,7 +29,8 @@
     "predeploy": "cd example && npm install && npm run build",
     "deploy": "gh-pages -d example/build",
     "storybook": "start-storybook -p 9009",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "chromatic": "npx chromatic --project-token pq9dwlqeah"
   },
   "peerDependencies": {
     "classnames": "^2.x",
@@ -57,6 +58,7 @@
     "@typescript-eslint/parser": "^2.34.0",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.1.0",
+    "chromatic": "^5.1.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-typescript": "^9.0.0",
     "eslint-config-prettier": "^6.7.0",

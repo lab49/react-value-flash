@@ -6,38 +6,34 @@ orbs:
 jobs:
   lint:
     docker:
-      - image: circleci/node:lts
+      - image: cimg/base:stable
     steps:
       - checkout
-      - node/install:
-          npm-version: latest
+      - node/install
       - run: npm run lint
 
   types:
     docker:
-      - image: circleci/node:lts
+      - image: cimg/base:stable
     steps:
       - checkout
-      - node/install:
-          npm-version: latest
+      - node/install
       - run: npm run types
 
   chromatic:
     docker:
-      - image: circleci/node:lts
+      - image: cimg/base:stable
     steps:
       - checkout
-      - node/install:
-          npm-version: latest
+      - node/install
       - run: npm run chromatic -- --exit-zero-on-changes
 
   test:
     docker:
-      - image: circleci/node:lts
+      - image: cimg/base:stable
     steps:
       - checkout
-      - node/install:
-          npm-version: latest
+      - node/install
       - run: npm run test -- --coverage
       - run: bash <(curl -s https://codecov.io/bash) -f ./coverage/coverage-final.json
 

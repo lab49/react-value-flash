@@ -4,7 +4,7 @@
 
 <img src="https://www.lab49.com/wp-content/uploads/2020/06/logo.svg" />
 
-[![codecov](https://codecov.io/gh/lab49/react-value-flash/branch/master/graph/badge.svg)](https://codecov.io/gh/brianmcallister/react-value-flash) [![CircleCI](https://circleci.com/gh/lab49/react-value-flash.svg?style=svg)](https://circleci.com/gh/brianmcallister/react-value-flash) [![npm version](https://img.shields.io/npm/v/@lab49/react-value-flash?label=version&color=%2354C536&logo=npm)](https://www.npmjs.com/package/@lab49/react-value-flash)
+[![codecov](https://codecov.io/gh/lab49/react-value-flash/branch/master/graph/badge.svg)](https://codecov.io/gh/lab49/react-value-flash) [![CircleCI](https://circleci.com/gh/lab49/react-value-flash.svg?style=svg)](https://circleci.com/gh/lab49/react-value-flash) [![npm version](https://img.shields.io/npm/v/@lab49/react-value-flash?label=version&color=%2354C536&logo=npm)](https://www.npmjs.com/package/@lab49/react-value-flash)
 
 > Flash on screen based on value changes. Perfect for financial applications.
 

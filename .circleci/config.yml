@@ -1,7 +1,44 @@
 version: 2.1
+
 orbs:
-  node: circleci/node@3.0.0
+  node: circleci/node@4.0.0
+
+jobs:
+  lint:
+    docker:
+      - image: circleci/node:lts
+    steps:
+      - checkout
+      - node/install
+      - run: npm run lint
+
+  types:
+    docker:
+      - image: circleci/node:lts
+    steps:
+      - checkout
+      - node/install
+      - run: npm run types
+
+  chromatic:
+    docker:
+      - image: circleci/node:lts
+    steps:
+      - checkout
+      - node/install
+      - npm run chromatic -- --exit-zero-on-changes
+
+  test:
+    docker:
+      - image: circleci/node:lts
+    steps:
+      - npm run test -- --coverage
+      - bash <(curl -s https://codecov.io/bash) -f ./coverage/coverage-final.json
+
 workflows:
-  node-tests:
+  tests:
     jobs:
-      - node/test
+      - types
+      - lint
+      - test
+      - chromatic

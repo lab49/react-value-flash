@@ -50,7 +50,6 @@ export interface Props {
  * color and transition properties are configurable as props, you can
  * still use the generated classnames (which are also configurable) to
  * add your own unique styles.
- *
  */
 export const Flash = ({
   downColor = '#d43215',

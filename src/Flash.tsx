@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import React from 'react';
 
-import { defaultFormatter, formatters } from './formatters/index';
+import { formatters, Formatter } from './formatters/index';
 
 export enum FlashDirection {
   Down = 'down',
@@ -14,7 +14,7 @@ export interface Props {
   // One of the built in formatters.
   formatter?: 'currency' | 'percentage' | 'number';
   // Pass your own formatter function.
-  formatterFn?: (value: Props['value']) => string;
+  formatterFn?: Formatter;
   // Prefix for the CSS selectors in the DOM.
   stylePrefix?: string;
   // Amount of time the flashed state is visible for, in milliseconds.
@@ -50,7 +50,6 @@ export interface Props {
  * color and transition properties are configurable as props, you can
  * still use the generated classnames (which are also configurable) to
  * add your own unique styles.
- *
  */
 export const Flash = ({
   downColor = '#d43215',
@@ -76,7 +75,7 @@ export const Flash = ({
     [`${stylePrefix}--negative`]: value < 0,
     [`${stylePrefix}--positive`]: value > 0,
   });
-  const valueFormatter = formatterFn ?? (formatter ? formatters[formatter] : defaultFormatter);
+  const valueFormatter = formatterFn ?? (formatter ? formatters[formatter] : formatters.default);
 
   React.useEffect(() => {
     // If there's no change, only reset (this prevents flash on first render).

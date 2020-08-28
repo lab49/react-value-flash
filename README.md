@@ -89,7 +89,13 @@ As discussed above, there are a number of classnames you can use to add your own
 
 ### `Flash`
 
-This is the only named export. See the prop below.
+`<Flash />` is a `(props: Props) => JSX.Element`. See `Props` below for a description of the avilable props.
+
+```ts
+import { Flash } from '@lab49/react-value-flash';
+
+const MyComponent = () => <Flash value={1} />;
+```
 
 ### `Props`
 

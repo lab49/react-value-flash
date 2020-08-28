@@ -26,15 +26,16 @@ jobs:
     steps:
       - checkout
       - node/install
-      - npm run chromatic -- --exit-zero-on-changes
+      - run: npm run chromatic -- --exit-zero-on-changes
 
   test:
     docker:
       - image: circleci/node:lts
     steps:
       - checkout
-      - npm run test -- --coverage
-      - bash <(curl -s https://codecov.io/bash) -f ./coverage/coverage-final.json
+      - node/install
+      - run: npm run test -- --coverage
+      - run: bash <(curl -s https://codecov.io/bash) -f ./coverage/coverage-final.json
 
 workflows:
   tests:

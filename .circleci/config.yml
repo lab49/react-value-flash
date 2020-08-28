@@ -9,7 +9,8 @@ jobs:
       - image: circleci/node:lts
     steps:
       - checkout
-      - node/install
+      - node/install:
+          npm-version: latest
       - run: npm run lint
 
   types:
@@ -17,7 +18,8 @@ jobs:
       - image: circleci/node:lts
     steps:
       - checkout
-      - node/install
+      - node/install:
+          npm-version: latest
       - run: npm run types
 
   chromatic:
@@ -25,7 +27,8 @@ jobs:
       - image: circleci/node:lts
     steps:
       - checkout
-      - node/install
+      - node/install:
+          npm-version: latest
       - run: npm run chromatic -- --exit-zero-on-changes
 
   test:
@@ -33,7 +36,8 @@ jobs:
       - image: circleci/node:lts
     steps:
       - checkout
-      - node/install
+      - node/install:
+          npm-version: latest
       - run: npm run test -- --coverage
       - run: bash <(curl -s https://codecov.io/bash) -f ./coverage/coverage-final.json
 

@@ -147,7 +147,7 @@ MIT @ [Lab49](https://lab49.com)
 
 ## TODO
 
-These items are very high level right now. Further discussion and proper roadmap plannig will happen in GitHub issues and projects.
+These items are very high level right now. Further discussion and proper roadmap planning will happen in GitHub issues and projects.
 
 - [ ] Add unit tests.
 - [ ] Incorporate a CI process for publishing.

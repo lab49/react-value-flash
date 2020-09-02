@@ -62,6 +62,12 @@ export const StreamingData = () => {
   );
 };
 
+StreamingData.parameters = {
+  chromatic: {
+    disable: true,
+  },
+};
+
 export const CustomColors = () => {
   return (
     <ValueSetter>

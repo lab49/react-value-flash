@@ -1,10 +1,14 @@
 {
   "name": "@lab49/react-value-flash",
   "version": "0.1.0",
-  "description": "Flash on screen based on value changes. Perfect for financial applications.",
+  "description": "Flash on value change. Perfect for financial applications.",
   "author": "brianmcallister",
   "license": "MIT",
   "repository": "@lab49/react-value-flash",
+  "bugs": {
+    "url": "https://github.com/lab49/react-value-flash/issues"
+  },
+  "homepage": "https://github.com/lab49/react-value-flash",
   "keywords": [
     "react",
     "finance",

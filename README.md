@@ -4,11 +4,10 @@
 
 <h3>&nbsp;</h3>
 <p align="center">
-  <img src="/.github/react-value-flash.png">
+  <img src="/.github/react-value-flash.png" width="400">
+	<p align="center">Flash on value change. Perfect for financial applications.</p>
 </p>
 <h3>&nbsp;</h3>
-
-> Flash on value change. Perfect for financial applications.
 
 `react-value-flash` will display a flashed value on screen based on some value change. This pattern is extremely common in financial applications, and at Lab49, we're focused on the finance industry.
 

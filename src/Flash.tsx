@@ -9,23 +9,41 @@ export enum FlashDirection {
 }
 
 export interface Props {
-  // Color value when the component flashes 'down'.
+  /**
+   * Color value when the component flashes 'down'.
+   */
   downColor?: string;
-  // One of the built in formatters.
+  /**
+   * One of the built in formatters.
+   */
   formatter?: 'currency' | 'percentage' | 'number';
-  // Pass your own formatter function.
+  /**
+   * Pass your own formatter function.
+   */
   formatterFn?: Formatter;
-  // Prefix for the CSS selectors in the DOM.
+  /**
+   * Prefix for the CSS selectors in the DOM.
+   */
   stylePrefix?: string;
-  // Amount of time the flashed state is visible for, in milliseconds.
+  /**
+   * Amount of time the flashed state is visible for, in milliseconds.
+   */
   timeout?: number;
-  // Custom CSS transition property.
+  /**
+   * Custom CSS transition property.
+   */
   transition?: string;
-  // Transition length, in milliseconds.
+  /**
+   * Transition length, in milliseconds.
+   */
   transitionLength?: number;
-  // Color value when the component flashes 'up'.
+  /**
+   * Color value when the component flashes 'up'.
+   */
   upColor?: string;
-  // Value to display. The only required prop.
+  /**
+   * Value to display. The only required prop.
+   */
   value: number;
 }
 

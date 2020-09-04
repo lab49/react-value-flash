@@ -1,12 +1,13 @@
 # @lab49/react-value-flash
 
-> Sponsored by Lab49
-
-<img src="https://www.lab49.com/wp-content/uploads/2020/06/logo.svg" />
-
 [![codecov](https://codecov.io/gh/lab49/react-value-flash/branch/master/graph/badge.svg)](https://codecov.io/gh/lab49/react-value-flash) [![CircleCI](https://circleci.com/gh/lab49/react-value-flash.svg?style=svg)](https://circleci.com/gh/lab49/react-value-flash) [![npm version](https://img.shields.io/npm/v/@lab49/react-value-flash?label=version&color=%2354C536&logo=npm)](https://www.npmjs.com/package/@lab49/react-value-flash)
 
-> Flash on screen based on value changes. Perfect for financial applications.
+<h3>&nbsp;</h3>
+<p align="center">
+  <img src="/.github/react-value-flash.png" width="400">
+	<p align="center">Flash on value change. Perfect for financial applications.</p>
+</p>
+<h3>&nbsp;</h3>
 
 `react-value-flash` will display a flashed value on screen based on some value change. This pattern is extremely common in financial applications, and at Lab49, we're focused on the finance industry.
 
@@ -101,23 +102,41 @@ const MyComponent = () => <Flash value={1} />;
 
 ```ts
 interface Props {
-  // Color value when the component flashes 'down'.
+  /**
+   * Color value when the component flashes 'down'.
+   */
   downColor?: string;
-  // One of the built in formatters.
+  /**
+   * One of the built in formatters.
+   */
   formatter?: 'currency' | 'percentage' | 'number';
-  // Pass your own formatter function.
-  formatterFn?: (value: Props['value']) => string;
-  // Prefix for the CSS selectors in the DOM.
+  /**
+   * Pass your own formatter function.
+   */
+  formatterFn?: Formatter;
+  /**
+   * Prefix for the CSS selectors in the DOM.
+   */
   stylePrefix?: string;
-  // Amount of time the flashed state is visible for, in milliseconds.
+  /**
+   * Amount of time the flashed state is visible for, in milliseconds.
+   */
   timeout?: number;
-  // Custom CSS transition property.
+  /**
+   * Custom CSS transition property.
+   */
   transition?: string;
-  // Transition length, in milliseconds.
+  /**
+   * Transition length, in milliseconds.
+   */
   transitionLength?: number;
-  // Color value when the component flashes 'up'.
+  /**
+   * Color value when the component flashes 'up'.
+   */
   upColor?: string;
-  // Value to display. The only required prop.
+  /**
+   * Value to display. The only required prop.
+   */
   value: number;
 }
 ```
@@ -158,3 +177,9 @@ These items are very high level right now. Further discussion and proper roadmap
 - [ ] Support for transition events.
 - [ ] Support for custom keyframe animations.
 - [ ] Custom component rendering (leverage formatter? render props?).
+
+## Sponsored by Lab49
+
+<a href="https://lab49.com">
+  <img src="https://www.lab49.com/wp-content/uploads/2020/06/logo.svg" />
+</a>

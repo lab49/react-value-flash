@@ -2,9 +2,11 @@
 
 [![codecov](https://codecov.io/gh/lab49/react-value-flash/branch/master/graph/badge.svg)](https://codecov.io/gh/lab49/react-value-flash) [![CircleCI](https://circleci.com/gh/lab49/react-value-flash.svg?style=svg)](https://circleci.com/gh/lab49/react-value-flash) [![npm version](https://img.shields.io/npm/v/@lab49/react-value-flash?label=version&color=%2354C536&logo=npm)](https://www.npmjs.com/package/@lab49/react-value-flash)
 
-<center style="padding: 20px 0; margin: 20px 0; background: #fff">
-  <img src=".github/react-value-flash.png">
-</center>
+<h3>&nbsp;</h3>
+<p align="center">
+  <img src="/.github/react-value-flash.png">
+</p>
+<h3>&nbsp;</h3>
 
 > Flash on value change. Perfect for financial applications.
 

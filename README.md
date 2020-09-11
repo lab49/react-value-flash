@@ -3,7 +3,6 @@
 [![codecov](https://codecov.io/gh/lab49/react-value-flash/branch/master/graph/badge.svg)](https://codecov.io/gh/lab49/react-value-flash) [![CircleCI](https://circleci.com/gh/lab49/react-value-flash.svg?style=svg)](https://circleci.com/gh/lab49/react-value-flash) [![npm version](https://img.shields.io/npm/v/@lab49/react-value-flash?label=version&color=%2354C536&logo=npm)](https://www.npmjs.com/package/@lab49/react-value-flash)
 
 <h3>&nbsp;</h3>
-<h3>&nbsp;</h3>
 <p align="center">
   <img src="/.github/react-value-flash.png" width="400">
 	<p align="center">Flash on value change. Perfect for financial applications.</p>
@@ -18,15 +17,15 @@ Not only are these colors configurable, but the properties of the flash itself a
 
 Furthermore, this component doesn't come with any styles, but does provide plenty of hooks to add your own styles. Even though flash color and transition properties are configurable as props, you can still use the generated classnames (which are also configurable) to add your own unique styles.
 
+<p align="center">
+  <img src="/.github/motion.gif">
+</p>
+
 This component is perfect for:
 
 - Trading platforms
 - Analytics dashboards
 - Monitoring dashboards
-
-<p align="center">
-  <img src="/.github/motion.gif">
-</p>
 
 ## Features
 

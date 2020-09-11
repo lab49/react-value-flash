@@ -4,7 +4,7 @@
 
 <h3>&nbsp;</h3>
 <p align="center">
-  <img src="/.github/react-value-flash.png" width="400">
+  <img src="https://github.com/lab49/react-value-flash/blob/f5329bea47bd6635a86b9ae7ff3eb07003f61ed1/.github/react-value-flash.png?raw=true" width="400">
 	<p align="center">Flash on value change. Perfect for financial applications.</p>
 </p>
 <h3>&nbsp;</h3>
@@ -18,7 +18,7 @@ Not only are these colors configurable, but the properties of the flash itself a
 Furthermore, this component doesn't come with any styles, but does provide plenty of hooks to add your own styles. Even though flash color and transition properties are configurable as props, you can still use the generated classnames (which are also configurable) to add your own unique styles.
 
 <p align="center">
-  <img src="/.github/motion.gif">
+  <img src="https://github.com/lab49/react-value-flash/blob/f5329bea47bd6635a86b9ae7ff3eb07003f61ed1/.github/motion.gif?raw=true">
 </p>
 
 This component is perfect for:

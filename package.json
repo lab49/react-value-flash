@@ -29,6 +29,7 @@
     "build": "microbundle-crl --no-compress --format modern,cjs",
     "chromatic": "npx chromatic --project-token pq9dwlqeah",
     "lint": "eslint --ext ts,tsx src",
+    "lint:staged": "eslint",
     "precommit": "lint-staged",
     "prepare": "npm run build",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
@@ -42,7 +43,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": ["npm run lint"]
+    "*.{js,jsx,ts,tsx}": ["eslint"]
   },
   "peerDependencies": {
     "classnames": "^2.x",

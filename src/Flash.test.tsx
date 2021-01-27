@@ -5,7 +5,7 @@ import { Flash } from './Flash';
 import { Formatter } from './formatters/index';
 
 const currencyFormatterEuro = (value: number): string =>
-  Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(value);
+  Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(value);
 
 describe('Given <Flash /> component', () => {
   const testCases: {
@@ -42,7 +42,7 @@ describe('Given <Flash /> component', () => {
       value: 20000,
       formatterFn: currencyFormatterEuro,
       then: 'value should be displayed in custom format',
-      formattedValue: '€20,000.00',
+      formattedValue: '￥20,000',
     },
     {
       when: 'no formatter is set',

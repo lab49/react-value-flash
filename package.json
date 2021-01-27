@@ -34,8 +34,8 @@
     "prepare": "npm run build",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
     "storybook": "start-storybook -p 9009",
-    "test": "jest",
-    "test:watch": "jest --watch",
+    "test": "cross-env NODE_ICU_DATA=node_modules/full-icu jest",
+    "test:watch": "cross-env NODE_ICU_DATA=node_modules/full-icu jest --watch",
     "types": "tsc --noEmit"
   },
   "husky": {
@@ -74,6 +74,7 @@
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.1.0",
     "chromatic": "^5.1.0",
+    "cross-env": "^7.0.3",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-typescript": "^9.0.0",
     "eslint-config-prettier": "^6.7.0",
@@ -85,6 +86,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.20.5",
     "eslint-plugin-react-hooks": "^4.0.8",
+    "full-icu": "^1.3.1",
     "husky": "^4.3.8",
     "jest": "^26.4.2",
     "lint-staged": "^10.5.3",

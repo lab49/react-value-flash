@@ -4,7 +4,7 @@ import { render, screen } from '@testing-library/react';
 import { Flash } from './Flash';
 import { Formatter } from './formatters/index';
 
-const currencyFormatterEuro = (value: number): string =>
+const currencyFormatterYen = (value: number): string =>
   Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(value);
 
 describe('Given <Flash /> component', () => {
@@ -40,7 +40,7 @@ describe('Given <Flash /> component', () => {
     {
       when: 'a custom formatter function is provided',
       value: 20000,
-      formatterFn: currencyFormatterEuro,
+      formatterFn: currencyFormatterYen,
       then: 'value should be displayed in custom format',
       formattedValue: '￥20,000',
     },

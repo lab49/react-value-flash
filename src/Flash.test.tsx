@@ -58,8 +58,8 @@ describe('Given <Flash /> component', () => {
         render(<Flash formatter={formatter} value={value} formatterFn={formatterFn} />);
       });
       it(`Then ${then}`, () => {
-        const valueEl = screen.getByTestId('value');
-        expect(valueEl.textContent).toEqual(formattedValue);
+        const valueEl = screen.getByText(formattedValue);
+        expect(valueEl).not.toBeNull();
       });
     });
   });

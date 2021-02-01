@@ -122,9 +122,7 @@ export const Flash = ({
 
   return (
     <div className={cls} style={style}>
-      <span className={`${stylePrefix}__value`} data-testid="value">
-        {valueFormatter(value)}
-      </span>
+      <span className={`${stylePrefix}__value`}>{valueFormatter(value)}</span>
     </div>
   );
 };

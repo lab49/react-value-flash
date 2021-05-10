@@ -4,6 +4,7 @@ build-storybook.log
 coverage
 # dependencies
 node_modules
+.vscode
 
 # builds
 build

@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import React from 'react';
 
-import { formatters, Formatter } from './formatters/index';
+import { formatters, Formatter, RenderProp } from './formatters/index';
 
 export enum FlashDirection {
   Down = 'down',
@@ -45,6 +45,8 @@ export interface Props {
    * Value to display. The only required prop.
    */
   value: number;
+
+  render: RenderProp;
 }
 
 /**
@@ -79,6 +81,7 @@ export const Flash = ({
   upColor = '#00d865',
   value,
   stylePrefix = 'rvf_Flash',
+  render,
 }: Props) => {
   const ref = React.useRef<number>(value);
   const [flash, setFlash] = React.useState<FlashDirection | null>(null);
@@ -122,7 +125,7 @@ export const Flash = ({
 
   return (
     <div className={cls} style={style}>
-      <span className={`${stylePrefix}__value`}>{valueFormatter(value)}</span>
+      {render(value, valueFormatter)}
     </div>
   );
 };

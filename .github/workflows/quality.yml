@@ -6,27 +6,28 @@ jobs:
   quality:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
+      - name: Checkout
         uses: actions/checkout@v2
         with:
             fetch-depth: 0 # Required to retrieve git history for Chromatic
 
-      - name: dependencies
+      - name: Install dependencies
         run: npm install
 
-      - name: lint
+      - name: Run eslint
         run: npm run lint
 
-      - name: types
+      - name: Run TypeScript
         run: npm run types
 
-      - name: test
+      - name: Run Tests
         run: |
           npm run test -- --coverage
           bash <(curl -s https://codecov.io/bash) -f ./coverage/coverage-final.json
 
-      - name: Chromatic
+      - name: Upload to Chromatic
         uses: chromaui/action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          projectToken: "pq9dwlqeah"
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          exitOnceUploaded: true

@@ -1,0 +1,19 @@
+name: Chromatic
+on: [push]
+jobs:
+  chromatic:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Required to retrieve git history for Chromatic
+
+      - name: dependencies
+        run: npm install
+
+      - name: Chromatic
+        uses: chromaui/action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          projectToken: "pq9dwlqeah"

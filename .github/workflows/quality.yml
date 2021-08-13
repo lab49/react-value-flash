@@ -1,0 +1,17 @@
+name: Quality checks
+on: [push]
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: dependencies
+        run: npm install
+
+      - name: lint
+        run: npm run lint
+
+      - name: types
+        run: npm run types

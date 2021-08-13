@@ -15,3 +15,13 @@ jobs:
 
       - name: types
         run: npm run types
+
+      - name: test
+        run: npm run test -- --coverage
+        run: bash <(curl -s https://codecov.io/bash) -f ./coverage/coverage-final.json
+
+      - name: Chromatic
+        uses: chromaui/action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          projectToken: "pq9dwlqeah"

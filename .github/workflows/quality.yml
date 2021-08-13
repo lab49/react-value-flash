@@ -1,5 +1,7 @@
 name: Quality checks
+
 on: [push]
+
 jobs:
   quality:
     runs-on: ubuntu-latest
@@ -17,8 +19,9 @@ jobs:
         run: npm run types
 
       - name: test
-        run: npm run test -- --coverage
-        run: bash <(curl -s https://codecov.io/bash) -f ./coverage/coverage-final.json
+        run: |
+          npm run test -- --coverage
+          bash <(curl -s https://codecov.io/bash) -f ./coverage/coverage-final.json
 
       - name: Chromatic
         uses: chromaui/action@v1

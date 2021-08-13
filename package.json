@@ -27,15 +27,14 @@
   "scripts": {
     "build-storybook": "build-storybook",
     "build": "microbundle-crl --no-compress --format modern,cjs",
-    "chromatic": "chromatic --project-token pq9dwlqeah",
-    "lint": "eslint --ext ts,tsx src",
     "lint:staged": "eslint",
+    "lint": "eslint --ext ts,tsx src",
     "precommit": "lint-staged",
     "prepare": "npm run build",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
     "storybook": "start-storybook -p 9009",
-    "test": "cross-env NODE_ICU_DATA=node_modules/full-icu jest",
     "test:watch": "cross-env NODE_ICU_DATA=node_modules/full-icu jest --watch",
+    "test": "cross-env NODE_ICU_DATA=node_modules/full-icu jest",
     "types": "tsc --noEmit"
   },
   "husky": {

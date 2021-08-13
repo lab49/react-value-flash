@@ -48,7 +48,7 @@ This component is perfect for:
 
 ## Demo
 
-Hosted demo: [https://react-value-flash.netlify.com/](https://react-value-flash.netlify.com/)
+Hosted demo: [https://master--5f3fca6e6b5eba0022c71e4e.chromatic.com/](https://master--5f3fca6e6b5eba0022c71e4e.chromatic.com/)
 
 You can also run the demo locally. To get started:
 

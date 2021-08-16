@@ -1,6 +1,6 @@
 # @lab49/react-value-flash
 
-[![codecov](https://codecov.io/gh/lab49/react-value-flash/branch/master/graph/badge.svg)](https://codecov.io/gh/lab49/react-value-flash) [![CircleCI](https://circleci.com/gh/lab49/react-value-flash.svg?style=svg)](https://circleci.com/gh/lab49/react-value-flash) [![npm version](https://img.shields.io/npm/v/@lab49/react-value-flash?label=version&color=%2354C536&logo=npm)](https://www.npmjs.com/package/@lab49/react-value-flash) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
+[![codecov](https://codecov.io/gh/lab49/react-value-flash/branch/master/graph/badge.svg)](https://codecov.io/gh/lab49/react-value-flash) [![Quality checks](https://github.com/lab49/react-value-flash/actions/workflows/quality.yml/badge.svg)](https://github.com/lab49/react-value-flash/actions/workflows/quality.yml) [![npm version](https://img.shields.io/npm/v/@lab49/react-value-flash?label=version&color=%2354C536&logo=npm)](https://www.npmjs.com/package/@lab49/react-value-flash) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
 
 <h3>&nbsp;</h3>
 <p align="center">

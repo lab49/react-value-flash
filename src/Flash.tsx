@@ -80,7 +80,12 @@ export const Flash = ({
   value,
   stylePrefix = 'rvf_Flash',
 }: Props) => {
-  const ref = React.useRef<number>(value);
+  const valueRef = React.useRef<number>(value);
+
+  const valueFormatter = formatterFn ?? (formatter ? formatters[formatter] : formatters.default);
+  const formattedValue = valueFormatter(value);
+  const formattedValueRef = React.useRef<string>(formattedValue);
+
   const [flash, setFlash] = React.useState<FlashDirection | null>(null);
   const style = {
     transition: transition || `background-color ${transitionLength}ms ease-in-out`,
@@ -93,19 +98,18 @@ export const Flash = ({
     [`${stylePrefix}--negative`]: value < 0,
     [`${stylePrefix}--positive`]: value > 0,
   });
-  const valueFormatter = formatterFn ?? (formatter ? formatters[formatter] : formatters.default);
 
   React.useEffect(() => {
     // If there's no change, only reset (this prevents flash on first render).
     // TODO (brianmcallister) - Which, maybe, people might want?
-    if (ref.current === value) {
+    if (formattedValueRef.current === formattedValue) {
       setFlash(null);
 
       return () => {};
     }
 
     // Set the flash direction.
-    setFlash(value > ref.current ? FlashDirection.Up : FlashDirection.Down);
+    setFlash(value > valueRef.current ? FlashDirection.Up : FlashDirection.Down);
 
     // Reset the flash state after `timeout`.
     const timeoutInterval = setTimeout(() => {
@@ -113,16 +117,17 @@ export const Flash = ({
     }, timeout);
 
     // Update the ref to reflect the new `value`.
-    ref.current = value;
+    valueRef.current = value;
+    formattedValueRef.current = valueFormatter(value);
 
     return () => {
       clearTimeout(timeoutInterval);
     };
-  }, [value, timeout]);
+  }, [value, formattedValue, timeout, valueFormatter]);
 
   return (
-    <div className={cls} style={style}>
-      <span className={`${stylePrefix}__value`}>{valueFormatter(value)}</span>
+    <div data-testid="flash" className={cls} style={style}>
+      <span className={`${stylePrefix}__value`}>{formattedValue}</span>
     </div>
   );
 };

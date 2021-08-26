@@ -37,6 +37,9 @@
     "test": "cross-env NODE_ICU_DATA=node_modules/full-icu jest",
     "types": "tsc --noEmit"
   },
+  "jest": {
+    "setupFilesAfterEnv": ["./setupTests.ts"] 
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
@@ -93,6 +96,7 @@
     "prettier": "^2.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "regenerator-runtime": "^0.13.9",
     "ts-loader": "^8.0.2",
     "typescript": "^3.9.7"
   }

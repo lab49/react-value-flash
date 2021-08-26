@@ -63,4 +63,40 @@ describe('Given <Flash /> component', () => {
       });
     });
   });
+
+  describe('When the value changes and produces a change to the formatted value', () => {
+    it('Then there should be a flash', async () => {
+      const value1 = 1.2;
+      const value2 = 2.2;
+      const formatterFn = (value: number) => `${Math.floor(value)}`;
+
+      const { rerender } = render(<Flash value={value1} formatterFn={formatterFn} />);
+
+      const flashElement = await screen.findByTestId('flash');
+
+      expect(flashElement.className).not.toContain('rvf_Flash--flashing');
+
+      rerender(<Flash value={value2} formatterFn={formatterFn} />);
+
+      expect(flashElement.className).toContain('rvf_Flash--flashing');
+    });
+  });
+
+  describe('When the value changes but the formatted value does not', () => {
+    it('Then there should be no flash', async () => {
+      const value1 = 1.2;
+      const value2 = 1.4;
+      const formatterFn = (value: number) => `${Math.floor(value)}`;
+
+      const { rerender } = render(<Flash value={value1} formatterFn={formatterFn} />);
+
+      const flashElement = await screen.findByTestId('flash');
+
+      expect(flashElement.className).not.toContain('rvf_Flash--flashing');
+
+      rerender(<Flash value={value2} formatterFn={formatterFn} />);
+
+      expect(flashElement.className).not.toContain('rvf_Flash--flashing');
+    });
+  });
 });

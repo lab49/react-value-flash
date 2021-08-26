@@ -118,12 +118,12 @@ export const Flash = ({
 
     // Update the ref to reflect the new `value`.
     valueRef.current = value;
-    formattedValueRef.current = valueFormatter(value);
+    formattedValueRef.current = formattedValue;
 
     return () => {
       clearTimeout(timeoutInterval);
     };
-  }, [value, formattedValue, timeout, valueFormatter]);
+  }, [value, formattedValue, timeout]);
 
   return (
     <div data-testid="flash" className={cls} style={style}>

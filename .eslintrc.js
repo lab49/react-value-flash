@@ -6,8 +6,22 @@ module.exports = {
   env: {
     jest: true
   },
-  plugins: ['@typescript-eslint', 'prettier'],
-  extends: ['airbnb-typescript', 'plugin:eslint-comments/recommended', 'plugin:import/errors', 'plugin:import/warnings', 'plugin:import/typescript', 'plugin:react/recommended', 'plugin:react-hooks/recommended', 'prettier', 'prettier/@typescript-eslint', 'plugin:storybook/recommended'],
+  plugins: [
+    '@typescript-eslint',
+    'prettier'
+  ],
+  extends: [
+    'airbnb-typescript',
+    'plugin:eslint-comments/recommended',
+    'plugin:import/errors',
+    'plugin:import/warnings',
+    'plugin:import/typescript',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+    'prettier',
+    'prettier/@typescript-eslint',
+    'plugin:storybook/recommended'
+  ],
   rules: {
     'prettier/prettier': 2,
     'import/prefer-default-export': 0,

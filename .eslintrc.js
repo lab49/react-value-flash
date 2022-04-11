@@ -1,12 +1,15 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: './tsconfig.eslint.json',
+    project: './tsconfig.eslint.json'
   },
   env: {
-    jest: true,
+    jest: true
   },
-  plugins: ['@typescript-eslint', 'prettier'],
+  plugins: [
+    '@typescript-eslint',
+    'prettier'
+  ],
   extends: [
     'airbnb-typescript',
     'plugin:eslint-comments/recommended',
@@ -17,18 +20,17 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'prettier',
     'prettier/@typescript-eslint',
+    'plugin:storybook/recommended'
   ],
   rules: {
     'prettier/prettier': 2,
     'import/prefer-default-export': 0,
-    'import/no-default-export': 2,
+    'import/no-default-export': 2
   },
-  overrides: [
-    {
-      files: ['./stories/**/*stories*'],
-      rules: {
-        'import/no-default-export': 0,
-      },
-    },
-  ],
+  overrides: [{
+    files: ['./stories/**/*stories*'],
+    rules: {
+      'import/no-default-export': 0
+    }
+  }]
 };

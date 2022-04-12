@@ -168,21 +168,6 @@ MIT @ [Lab49](https://lab49.com)
 
 ###### [⇡ Top](#table-of-contents)
 
-## TODO
-
-These items are very high level right now. Further discussion and proper roadmap planning will happen in GitHub issues and projects.
-
-- [ ] Add unit tests.
-- [ ] Incorporate a CI process for publishing.
-- [x] Add lint-staged to maintain quality.
-- [ ] Add a code of conduct.
-- [ ] Add a contributing guide.
-- [ ] Create a feature roadmap.
-- [ ] Radix align numbers.
-- [ ] Support for transition events.
-- [ ] Support for custom keyframe animations.
-- [ ] Custom component rendering (leverage formatter? render props?).
-
 ## Sponsored by Lab49
 
 <a href="https://lab49.com">

@@ -1,5 +1,8 @@
 import classnames from 'classnames';
 import React from 'react';
+import { Container } from './components/Container';
+import { Value } from './components/Value';
+import { ComponentsConfig } from './components/types';
 
 import { formatters, Formatter } from './formatters/index';
 
@@ -45,6 +48,10 @@ export interface Props {
    * Value to display. The only required prop.
    */
   value: number;
+  /**
+   * Components configs to do custom rendering
+   */
+  components?: ComponentsConfig;
 }
 
 /**
@@ -79,6 +86,10 @@ export const Flash = ({
   upColor = '#00d865',
   value,
   stylePrefix = 'rvf_Flash',
+  components = {
+    Container,
+    Value,
+  },
 }: Props) => {
   const ref = React.useRef<number>(value);
   const [flash, setFlash] = React.useState<FlashDirection | null>(null);
@@ -121,8 +132,8 @@ export const Flash = ({
   }, [value, timeout]);
 
   return (
-    <div className={cls} style={style}>
-      <span className={`${stylePrefix}__value`}>{valueFormatter(value)}</span>
-    </div>
+    <components.Container cls={cls} style={style}>
+      <components.Value value={value} valueFormatter={valueFormatter} stylePrefix={stylePrefix} />
+    </components.Container>
   );
 };

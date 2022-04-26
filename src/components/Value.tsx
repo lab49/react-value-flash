@@ -1,5 +1,5 @@
 import React from 'react';
-import { Formatter, formatters } from '../formatters/index';
+import { Formatter } from '../formatters/index';
 
 export interface CommonProps {
   /**

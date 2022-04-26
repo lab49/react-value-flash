@@ -87,8 +87,8 @@ export const Flash = ({
   value,
   stylePrefix = 'rvf_Flash',
   components = {
-    Container: Container,
-    Value: Value,
+    Container,
+    Value,
   },
 }: Props) => {
   const ref = React.useRef<number>(value);
@@ -131,20 +131,9 @@ export const Flash = ({
     };
   }, [value, timeout]);
 
-  const containerProps = {
-    cls,
-    style,
-  };
-
-  const valueProps = {
-    value,
-    valueFormatter,
-    stylePrefix,
-  };
-
   return (
-    <components.Container {...containerProps}>
-      <components.Value {...valueProps} />
+    <components.Container cls={cls} style={style}>
+      <components.Value value={value} valueFormatter={valueFormatter} stylePrefix={stylePrefix} />
     </components.Container>
   );
 };

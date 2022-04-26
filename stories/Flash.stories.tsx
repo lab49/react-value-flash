@@ -6,6 +6,9 @@ import { Flash, Props } from '../src/Flash';
 import { useInterval } from './useInterval';
 import { ValueSetter } from './components/ValueSetter';
 import pkg from '../package.json';
+import { Value } from '../src/components/Value';
+import { CustomContainer } from './components/CustomContainer';
+import { CustomValue } from './components/CustomValue';
 
 export default {
   title: 'Flash',
@@ -223,5 +226,22 @@ export const MakeItNice = () => {
         )}
       </ValueSetter>
     </div>
+  );
+};
+
+export const CustomComponent = () => {
+  return (
+    <ValueSetter initialValue={999}>
+      {(value: number) => (
+        <Flash
+          value={value}
+          formatter="currency"
+          components={{
+            Container: CustomContainer,
+            Value: CustomValue,
+          }}
+        />
+      )}
+    </ValueSetter>
   );
 };

@@ -6,7 +6,6 @@ import { Flash, Props } from '../src/Flash';
 import { useInterval } from './useInterval';
 import { ValueSetter } from './components/ValueSetter';
 import pkg from '../package.json';
-import { Value } from '../src/components/Value';
 import { CustomContainer } from './components/CustomContainer';
 import { CustomValue } from './components/CustomValue';
 

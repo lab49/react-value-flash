@@ -8,6 +8,29 @@ export enum FlashDirection {
   Up = 'up',
 }
 
+export interface RenderProps {
+  /**
+   * The className to be applied to the wrapper if needed.
+   */
+  wrapperClassName?: string;
+  /**
+   * The computed inline styles for the wrapper element.
+   */
+  style?: React.CSSProperties;
+  /**
+   * The className to be applied to the label if needed.
+   */
+  labelClassName?: string;
+  /**
+   * The value exposed to the renderProps.
+   */
+  value?: number;
+  /**
+   * The formatter function to format the value.
+   */
+  valueFormatter?: Formatter;
+}
+
 export interface Props {
   /**
    * Color value when the component flashes 'down'.
@@ -45,6 +68,8 @@ export interface Props {
    * Value to display. The only required prop.
    */
   value: number;
+
+  render?: (renderProps: RenderProps) => JSX.Element;
 }
 
 /**
@@ -70,6 +95,7 @@ export interface Props {
  * add your own unique styles.
  */
 export const Flash = ({
+  render,
   downColor = '#d43215',
   formatter,
   formatterFn,
@@ -119,6 +145,10 @@ export const Flash = ({
       clearTimeout(timeoutInterval);
     };
   }, [value, timeout]);
+
+  if (render) {
+    return render({ cls, style, valueFormatter, value, labelClassName: `${stylePrefix}__value` });
+  }
 
   return (
     <div className={cls} style={style}>

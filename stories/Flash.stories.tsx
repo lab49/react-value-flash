@@ -283,7 +283,7 @@ export const RenderProps = () => {
               value={value} 
               formatter={"currency"}
               render={props => (
-                <div className={props.cls} style={props.style}>
+                <div className={props.wrapperClassName} style={props.style}>
                   <span className={props.labelClassName}>{props.valueFormatter(props.value)}</span>
                 </div>
               )} 

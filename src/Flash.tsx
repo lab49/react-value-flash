@@ -147,7 +147,12 @@ export const Flash = ({
   }, [value, timeout]);
 
   if (render) {
-    return render({ cls, style, valueFormatter, value, labelClassName: `${stylePrefix}__value` });
+    return render({ 
+      wrapperClassName: cls, 
+      style,
+      valueFormatter, 
+      value, 
+      labelClassName: `${stylePrefix}__value` });
   }
 
   return (

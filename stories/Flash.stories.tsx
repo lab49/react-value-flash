@@ -1,5 +1,7 @@
 import React from "react";
-import { Story, Meta } from "@storybook/react/types-6-0";
+import { Story, ComponentMeta, ComponentStory } from "@storybook/react";
+import { userEvent, within } from "@storybook/testing-library";
+import { expect } from "@storybook/jest";
 
 import { Flash, Props } from "../src/Flash";
 import { useInterval } from "./useInterval";
@@ -12,11 +14,7 @@ export default {
   parameters: {
     componentSubtitle: pkg.description,
   },
-  argTypes: {
-    upColor: { control: "color" },
-    downColor: { control: "color" },
-  },
-} as Meta;
+} as ComponentMeta<typeof Flash>;
 
 const numberMap: { [key: string]: string } = {
   0: "zero",
@@ -50,7 +48,7 @@ export const StreamingData = () => {
       setHasRan(true);
       setVal(Math.floor(Math.random() * 100) - 50);
     }
-  }, 300);
+  }, 200);
 
   return (
     <div>
@@ -70,48 +68,48 @@ StreamingData.parameters = {
   },
 };
 
-export const CustomColors = () => {
-  return (
-    <ValueSetter>
-      {(value: number) => (
-        <Flash value={value} upColor="blue" downColor="purple" />
-      )}
-    </ValueSetter>
-  );
+export const CustomColors = Template.bind({});
+
+CustomColors.args = {
+  upColor: "blue",
+  downColor: "purple",
 };
 
-export const NoTransition = () => {
-  return (
-    <ValueSetter>
-      {(value: number) => <Flash value={value} transition="none" />}
-    </ValueSetter>
-  );
+export const NoTransition = Template.bind({});
+
+NoTransition.args = {
+  transition: "none",
 };
 
-export const TransitionLength = () => {
-  return (
-    <ValueSetter>
-      {(value: number) => (
-        <Flash value={value} timeout={1200} transitionLength={1000} />
-      )}
-    </ValueSetter>
-  );
+export const TransitionLength = Template.bind({});
+
+TransitionLength.args = {
+  timeout: 1200,
+  transitionLength: 1000,
 };
 
-export const NumberFormatter = () => {
-  return (
-    <ValueSetter>
-      {(value: number) => <Flash value={value} formatter="number" />}
-    </ValueSetter>
-  );
+export const NumberFormatter = Template.bind({});
+
+NumberFormatter.args = {
+  formatter: "number",
 };
 
-export const CurrencyFormatter = () => {
+export const CurrencyFormatter: ComponentStory<typeof Flash> = () => {
   return (
     <ValueSetter upLabel="Add one dollar" downLabel="Subtract one dollar">
       {(value: number) => <Flash value={value} formatter="currency" />}
     </ValueSetter>
   );
+};
+
+CurrencyFormatter.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+
+  await expect(canvas.getByText("$20,000.00")).toBeInTheDocument();
+
+  await userEvent.click(canvas.getByTestId("first-button"));
+
+  await expect(canvas.getByText("$20,001.00")).toBeInTheDocument();
 };
 
 export const PercentageFormatter = () => {

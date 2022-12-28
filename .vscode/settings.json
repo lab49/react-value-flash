@@ -1,0 +1,8 @@
+{
+  "eslint.experimental": {
+    "useFlatConfig": false
+  },
+  "eslint.options": {
+    "overrideConfigFile": "eslint.config.js"
+  }
+}

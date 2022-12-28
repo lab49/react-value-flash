@@ -24,11 +24,19 @@ export const ValueSetter = ({
   return (
     <div>
       <div>
-        <button type="button" onClick={() => setValue(value + 1)}>
+        <button
+          data-testid="first-button"
+          type="button"
+          onClick={() => setValue(value + 1)}
+        >
           {upLabel}
         </button>
 
-        <button type="button" onClick={() => setValue(value - 1)}>
+        <button
+          data-testid="second-button"
+          type="button"
+          onClick={() => setValue(value - 1)}
+        >
           {downLabel}
         </button>
       </div>

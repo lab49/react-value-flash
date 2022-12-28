@@ -3,9 +3,6 @@ module.exports = {
   parserOptions: {
     project: "./tsconfig.json",
   },
-  env: {
-    jest: true,
-  },
   plugins: ["@typescript-eslint", "prettier"],
   extends: [
     "airbnb-typescript",
@@ -29,6 +26,7 @@ module.exports = {
       files: ["./stories/**/*stories*"],
       rules: {
         "import/no-default-export": 0,
+        "import/no-extraneous-dependencies": "off",
       },
     },
   ],

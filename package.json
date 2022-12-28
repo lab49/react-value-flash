@@ -1,6 +1,6 @@
 {
   "name": "@lab49/react-value-flash",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Flash on value change. Perfect for financial applications.",
   "author": "brianmcallister",
   "license": "MIT",

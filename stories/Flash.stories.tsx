@@ -1,40 +1,42 @@
-import React from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { Story, Meta } from '@storybook/react/types-6-0';
+import React from "react";
+import { Story, Meta } from "@storybook/react/types-6-0";
 
-import { Flash, Props } from '../src/Flash';
-import { useInterval } from './useInterval';
-import { ValueSetter } from './components/ValueSetter';
-import pkg from '../package.json';
+import { Flash, Props } from "../src/Flash";
+import { useInterval } from "./useInterval";
+import { ValueSetter } from "./components/ValueSetter";
+import pkg from "../package.json";
 
 export default {
-  title: 'Flash',
+  title: "Flash",
   component: Flash,
   parameters: {
     componentSubtitle: pkg.description,
   },
   argTypes: {
-    upColor: { control: 'color' },
-    downColor: { control: 'color' },
+    upColor: { control: "color" },
+    downColor: { control: "color" },
   },
 } as Meta;
 
-const numberMap = {
-  0: 'zero',
-  1: 'one',
-  2: 'two',
-  3: 'three',
-  4: 'four',
-  5: 'five',
-  6: 'six',
-  7: 'seven',
-  8: 'eight',
-  9: 'nine',
+const numberMap: { [key: string]: string } = {
+  0: "zero",
+  1: "one",
+  2: "two",
+  3: "three",
+  4: "four",
+  5: "five",
+  6: "six",
+  7: "seven",
+  8: "eight",
+  9: "nine",
 };
 
 const Template: Story<Props> = (args) => {
-  // eslint-disable-next-line react/jsx-props-no-spreading
-  return <ValueSetter>{(value: number) => <Flash {...args} value={value} />}</ValueSetter>;
+  return (
+    <ValueSetter>
+      {(value: number) => <Flash {...args} value={value} />}
+    </ValueSetter>
+  );
 };
 
 export const Default = Template.bind({});
@@ -54,7 +56,7 @@ export const StreamingData = () => {
     <div>
       <p>
         Stream:&nbsp;
-        {hasRan ? 'Connected!' : 'Loading...'}
+        {hasRan ? "Connected!" : "Loading..."}
       </p>
 
       <Flash value={val} />
@@ -71,25 +73,37 @@ StreamingData.parameters = {
 export const CustomColors = () => {
   return (
     <ValueSetter>
-      {(value: number) => <Flash value={value} upColor="blue" downColor="purple" />}
+      {(value: number) => (
+        <Flash value={value} upColor="blue" downColor="purple" />
+      )}
     </ValueSetter>
   );
 };
 
 export const NoTransition = () => {
-  return <ValueSetter>{(value: number) => <Flash value={value} transition="none" />}</ValueSetter>;
+  return (
+    <ValueSetter>
+      {(value: number) => <Flash value={value} transition="none" />}
+    </ValueSetter>
+  );
 };
 
 export const TransitionLength = () => {
   return (
     <ValueSetter>
-      {(value: number) => <Flash value={value} timeout={1200} transitionLength={1000} />}
+      {(value: number) => (
+        <Flash value={value} timeout={1200} transitionLength={1000} />
+      )}
     </ValueSetter>
   );
 };
 
 export const NumberFormatter = () => {
-  return <ValueSetter>{(value: number) => <Flash value={value} formatter="number" />}</ValueSetter>;
+  return (
+    <ValueSetter>
+      {(value: number) => <Flash value={value} formatter="number" />}
+    </ValueSetter>
+  );
 };
 
 export const CurrencyFormatter = () => {
@@ -116,9 +130,9 @@ export const CustomFormatter = () => {
           value={value}
           formatterFn={(val) => {
             return `[${`${val}`
-              .split('')
+              .split("")
               .map((v) => numberMap[v])
-              .join(', ')}]`;
+              .join(", ")}]`;
           }}
         />
       )}
@@ -160,7 +174,9 @@ export const StylingComponentClassNames = () => {
         }}
       />
 
-      <ValueSetter initialValue={0}>{(value: number) => <Flash value={value} />}</ValueSetter>
+      <ValueSetter initialValue={0}>
+        {(value: number) => <Flash value={value} />}
+      </ValueSetter>
     </div>
   );
 };

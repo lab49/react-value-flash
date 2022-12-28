@@ -42,7 +42,6 @@ This component is perfect for:
 	- [`Flash`](#Flash)
   - [`Props`](#Props)
   - [`FlashDirection`](#FlashDirection)
-- [Extra](#extra)
 - [License](#License)
 - [TODO](#TODO)
 
@@ -153,12 +152,6 @@ enum FlashDirection {
   Up = 'up',
 }
 ```
-
-###### [⇡ Top](#table-of-contents)
-
-## Extra
-
-This project was created with [create-react-library](https://github.com/transitive-bullshit/create-react-library).
 
 ###### [⇡ Top](#table-of-contents)
 

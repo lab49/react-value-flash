@@ -1,5 +1,7 @@
 import React from "react";
-import { Story, ComponentMeta } from "@storybook/react";
+import { Story, ComponentMeta, ComponentStory } from "@storybook/react";
+import { userEvent, within } from "@storybook/testing-library";
+import { expect } from "@storybook/jest";
 
 import { Flash, Props } from "../src/Flash";
 import { useInterval } from "./useInterval";
@@ -92,12 +94,22 @@ NumberFormatter.args = {
   formatter: "number",
 };
 
-export const CurrencyFormatter = () => {
+export const CurrencyFormatter: ComponentStory<typeof Flash> = () => {
   return (
     <ValueSetter upLabel="Add one dollar" downLabel="Subtract one dollar">
       {(value: number) => <Flash value={value} formatter="currency" />}
     </ValueSetter>
   );
+};
+
+CurrencyFormatter.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+
+  await expect(canvas.getByText("$20,000.00")).toBeInTheDocument();
+
+  await userEvent.click(canvas.getByTestId("first-button"));
+
+  await expect(canvas.getByText("$20,001.00")).toBeInTheDocument();
 };
 
 export const PercentageFormatter = () => {

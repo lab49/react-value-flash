@@ -29,6 +29,7 @@ module.exports = {
       files: ["./stories/**/*stories*"],
       rules: {
         "import/no-default-export": 0,
+        "import/no-extraneous-dependencies": "off",
       },
     },
   ],

@@ -1,16 +1,16 @@
-import React from 'react';
+import React from "react";
 
 interface Props {
-  children: (val: number) => void;
+  children: any;
   downLabel?: string;
   initialValue?: number;
   upLabel?: string;
 }
 
 const defaultProps = {
-  downLabel: 'Subtract one',
+  downLabel: "Subtract one",
   initialValue: 20_000,
-  upLabel: 'Add one',
+  upLabel: "Add one",
 };
 
 export const ValueSetter = ({

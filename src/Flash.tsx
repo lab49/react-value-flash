@@ -1,11 +1,11 @@
-import classnames from 'classnames';
-import React from 'react';
+import classnames from "classnames";
+import React from "react";
 
-import { formatters, Formatter } from './formatters/index';
+import { formatters, Formatter } from "./formatters/index";
 
 export enum FlashDirection {
-  Down = 'down',
-  Up = 'up',
+  Down = "down",
+  Up = "up",
 }
 
 export interface Props {
@@ -16,7 +16,7 @@ export interface Props {
   /**
    * One of the built in formatters.
    */
-  formatter?: 'currency' | 'percentage' | 'number';
+  formatter?: "currency" | "percentage" | "number";
   /**
    * Pass your own formatter function.
    */
@@ -70,21 +70,24 @@ export interface Props {
  * add your own unique styles.
  */
 export const Flash = ({
-  downColor = '#d43215',
+  downColor = "#d43215",
   formatter,
   formatterFn,
   timeout = 200,
   transition,
   transitionLength = 100,
-  upColor = '#00d865',
+  upColor = "#00d865",
   value,
-  stylePrefix = 'rvf_Flash',
+  stylePrefix = "rvf_Flash",
 }: Props) => {
   const ref = React.useRef<number>(value);
   const [flash, setFlash] = React.useState<FlashDirection | null>(null);
   const style = {
-    transition: transition || `background-color ${transitionLength}ms ease-in-out`,
-    ...(flash ? { backgroundColor: flash === FlashDirection.Up ? upColor : downColor } : null),
+    transition:
+      transition || `background-color ${transitionLength}ms ease-in-out`,
+    ...(flash
+      ? { backgroundColor: flash === FlashDirection.Up ? upColor : downColor }
+      : null),
   };
   const cls = classnames(stylePrefix, {
     [`${stylePrefix}--flashing`]: flash != null,
@@ -93,7 +96,8 @@ export const Flash = ({
     [`${stylePrefix}--negative`]: value < 0,
     [`${stylePrefix}--positive`]: value > 0,
   });
-  const valueFormatter = formatterFn ?? (formatter ? formatters[formatter] : formatters.default);
+  const valueFormatter =
+    formatterFn ?? (formatter ? formatters[formatter] : formatters.default);
 
   React.useEffect(() => {
     // If there's no change, only reset (this prevents flash on first render).

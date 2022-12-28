@@ -26,12 +26,12 @@
   ],
   "scripts": {
     "build-storybook": "build-storybook",
-    "build": "microbundle-crl --no-compress --format modern,cjs",
+    "build": "tsup src/Flash.tsx --dts --sourcemap --format esm,cjs,iife",
     "lint:staged": "eslint",
     "lint": "eslint --ext ts,tsx src",
     "precommit": "lint-staged",
     "prepare": "npm run build",
-    "start": "microbundle-crl watch --no-compress --format modern,cjs",
+    "start": "tsup src/Flash.tsx --watch",
     "storybook": "start-storybook -p 9009",
     "test:watch": "cross-env NODE_ICU_DATA=node_modules/full-icu jest --watch",
     "test": "cross-env NODE_ICU_DATA=node_modules/full-icu jest",
@@ -58,6 +58,7 @@
     "@storybook/addons": "^6.5.6",
     "@storybook/preset-typescript": "^3.0.0",
     "@storybook/react": "^6.5.6",
+    "@swc/core": "^1.3.24",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
@@ -95,6 +96,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "ts-loader": "^8.0.2",
-    "typescript": "^3.9.7"
+    "tsup": "^6.5.0",
+    "typescript": "^4.9.4"
   }
 }

@@ -109,7 +109,7 @@ CurrencyFormatter.play = async ({ canvasElement }) => {
 
   await userEvent.click(canvas.getByTestId("first-button"));
 
-  await expect(canvas.getByText("$20,003.00")).toBeInTheDocument();
+  await expect(canvas.getByText("$20,001.00")).toBeInTheDocument();
 };
 
 export const PercentageFormatter = () => {

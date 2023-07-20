@@ -18,8 +18,8 @@
     "javascript",
     "typescript"
   ],
-  "main": "dist/index.js",
-  "module": "dist/index.modern.js",
+  "main": "dist/Flash.js",
+  "module": "dist/Flash.js",
   "source": "src/Flash.tsx",
   "files": [
     "dist"
